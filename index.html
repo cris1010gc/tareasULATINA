@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Wiki ISO | Sistemas Integrados de Gestión</title>
+<style>
+:root{--ink:#172033;--muted:#5f6b7a;--line:#dfe5ec;--soft:#f7f9fc;--blue:#185fa7;--green:#2f7d4b;--orange:#b56818;--red:#a94343;--shadow:0 10px 30px rgba(23,32,51,.08)}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.62}
+a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+header{background:linear-gradient(135deg,#102a43,#185fa7);color:#fff;padding:64px 24px 52px}.hero{max-width:1120px;margin:auto}.eyebrow{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;opacity:.82;font-weight:700}.hero h1{font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.02;margin:.45rem 0 1rem}.hero p{max-width:850px;font-size:1.12rem;opacity:.94}.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.pill{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 12px;font-size:.88rem;background:rgba(255,255,255,.08)}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}nav .wrap{max-width:1120px;margin:auto;display:flex;gap:18px;overflow:auto;padding:12px 20px;white-space:nowrap}nav a{color:#344054;font-weight:650;font-size:.92rem}
+main{max-width:1120px;margin:auto;padding:40px 22px 80px}section{scroll-margin-top:76px;margin:0 0 56px}.section-title{font-size:2rem;margin:0 0 10px}.lead{font-size:1.08rem;color:#344054;max-width:960px}.callout{border-left:4px solid var(--blue);background:#f2f7fd;padding:18px 20px;border-radius:0 12px 12px 0;margin:24px 0}.update{border-left-color:var(--green);background:#f2faf5}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:1px solid var(--line);border-radius:16px;padding:22px;background:#fff;box-shadow:var(--shadow)}.card h3{margin-top:0}.tag{display:inline-block;font-size:.76rem;font-weight:750;border-radius:999px;padding:5px 9px;margin-bottom:8px;background:#eef4fb;color:#174f86}.tag.green{background:#edf8f1;color:#27633d}.tag.orange{background:#fff4e8;color:#8a4c0e}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;margin:20px 0 8px}table{width:100%;border-collapse:collapse;min-width:760px}th,td{padding:13px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}th{background:#f4f7fb;font-size:.91rem}tr:last-child td{border-bottom:0}.note{font-size:.88rem;color:var(--muted);margin-top:8px}
+svg{max-width:100%;height:auto}.figure{margin:26px 0;border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff;box-shadow:var(--shadow)}.figure-title{font-weight:800;margin:0 0 12px}.figure-note{font-size:.86rem;color:var(--muted);margin:10px 0 0}
+.timeline{position:relative;margin:28px 0 0;padding-left:28px}.timeline:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:#cfd8e3}.tl{position:relative;margin:0 0 22px}.tl:before{content:"";position:absolute;left:-27px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px #e8f1fb}.tl strong{display:block}.tl span{color:var(--muted)}
+.std{border-top:5px solid var(--blue)}.std.env{border-top-color:var(--green)}.std.safe{border-top-color:var(--orange)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}.case{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--soft)}.case h3{margin-top:0}.case .result{font-weight:700;color:#1f5d37}
+.score{display:grid;grid-template-columns:1.2fr repeat(3,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden}.score>div{padding:12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.score>div:nth-child(4n){border-right:0}.score .head{background:#f4f7fb;font-weight:750}.score .lastrow{border-bottom:0}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.step{position:relative;padding:20px 18px 18px 58px;border:1px solid var(--line);border-radius:14px;background:#fff}.step:before{counter-increment:s;content:counter(s);position:absolute;left:18px;top:18px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#eaf2fb;color:#174f86;font-weight:800}
+.refs{font-size:.95rem}.refs p{padding-left:2rem;text-indent:-2rem;margin:.8rem 0}.small{font-size:.9rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 22px;color:var(--muted);background:#fafbfc}.footer-wrap{max-width:1120px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:850px){.grid3,.two,.steps{grid-template-columns:1fr}.hero{padding:0}.score{grid-template-columns:1fr}.score>div{border-right:0}.score .head{display:none}}
+@media print{nav{display:none}header{background:#fff;color:#111;padding:20px 0;border-bottom:2px solid #111}.pill{border-color:#999}.card,.figure{box-shadow:none}main{padding:20px}.refs a:after{content:" (" attr(href) ")";font-size:.8em}}
+</style>
+</head>
+<body>
+<header id="inicio">
+  <div class="hero">
+    <div class="eyebrow">Aseguramiento de la Calidad · Actividad 10 · Wiki grupal</div>
+    <h1>Sistemas Integrados de Gestión ISO</h1>
+    <p>Una revisión clara y aplicada de <strong>ISO 9001:2026</strong>, <strong>ISO 14001:2026</strong> e <strong>ISO 45001:2018</strong>, enfocada en cómo estas normas pueden integrarse para gestionar mejor la calidad, el ambiente y la seguridad y salud en el trabajo.</p>
+    <div class="meta">
+      <span class="pill">Profesor: Jean Paul San Lee Lizano</span>
+      <span class="pill">Integrante: Cristhian García Contreras</span>
+          </div>
+  </div>
+</header>
+<nav><div class="wrap">
+  <a href="#introduccion">Introducción</a><a href="#historia">Historia</a><a href="#normas">Normas</a><a href="#integracion">Integración</a><a href="#casos">Casos</a><a href="#analisis">Análisis crítico</a><a href="#propuesta">Propuesta</a><a href="#colaboracion">Colaboración</a><a href="#referencias">Referencias</a>
+</div></nav>
+<main>
+<section id="introduccion">
+  <h2 class="section-title">1. Introducción</h2>
+  <p class="lead">Las normas ISO de sistemas de gestión permiten convertir objetivos amplios —como “mejorar la calidad”, “reducir el impacto ambiental” o “prevenir accidentes”— en procesos, responsabilidades, controles y evidencias verificables. Esta wiki analiza tres normas que pueden operar por separado, pero que adquieren especial valor cuando se integran en un único sistema de gestión.</p>
+  <div class="callout update"><strong>Actualización 2026.</strong> ISO 9001:2026 es la sexta edición vigente de la norma de gestión de la calidad y fue publicada el 16 de septiembre de 2026. ISO 14001:2026 es la cuarta edición vigente de gestión ambiental, publicada en abril de 2026. ISO 45001:2018 continúa vigente —con su enmienda climática de 2024— mientras una segunda edición se encuentra en desarrollo.</div>
+  <p>La selección de estas tres normas responde a una realidad organizacional: la calidad de un producto o servicio no puede analizarse de forma aislada de los recursos que consume, los impactos que genera ni las condiciones en las que trabajan las personas. Por eso, un sistema integrado permite evitar políticas, auditorías y controles duplicados, y facilita que la mejora continua se gestione como una sola disciplina organizacional.</p>
+</section>
+
+<section id="historia">
+  <h2 class="section-title">2. Historia y evolución</h2>
+  <p>ISO surgió después de la Segunda Guerra Mundial como un esfuerzo por unificar criterios técnicos entre países. En 1946 se reunieron delegados de 25 países en Londres y la organización inició formalmente sus operaciones el 23 de febrero de 1947. Con el tiempo, la normalización pasó de especificaciones eminentemente técnicas a sistemas de gestión aplicables a organizaciones de cualquier sector.</p>
+  <div class="timeline">
+    <div class="tl"><strong>1947 · Nace ISO</strong><span>Se constituye formalmente la Organización Internacional de Normalización.</span></div>
+    <div class="tl"><strong>1987 · Primera ISO 9001</strong><span>La gestión de la calidad comienza a consolidarse como un sistema auditable y certificable.</span></div>
+    <div class="tl"><strong>1996 · Primera ISO 14001</strong><span>Se formaliza un marco internacional para sistemas de gestión ambiental.</span></div>
+    <div class="tl"><strong>2018 · ISO 45001</strong><span>Se publica la primera norma ISO internacional específica para sistemas de seguridad y salud en el trabajo.</span></div>
+    <div class="tl"><strong>2026 · Nueva generación</strong><span>ISO 9001 e ISO 14001 publican nuevas ediciones, con mayor claridad y mejor alineación con otros sistemas de gestión.</span></div>
+  </div>
+</section>
+
+<section id="normas">
+  <h2 class="section-title">3. Normas seleccionadas</h2>
+  <div class="grid3">
+    <article class="card std"><span class="tag">Calidad</span><h3>ISO 9001:2026</h3><p><strong>Propósito:</strong> establecer, mantener y mejorar un sistema de gestión de la calidad capaz de cumplir requisitos, mejorar procesos y elevar la confianza del cliente.</p><p><strong>Ejes:</strong> contexto, liderazgo, planificación, soporte, operación, evaluación del desempeño y mejora.</p><p><strong>Aplicación:</strong> organizaciones de cualquier tamaño y sector; es certificable, aunque la certificación no es obligatoria.</p></article>
+    <article class="card std env"><span class="tag green">Ambiente</span><h3>ISO 14001:2026</h3><p><strong>Propósito:</strong> gestionar de forma sistemática los aspectos e impactos ambientales, las obligaciones de cumplimiento y la mejora del desempeño ambiental.</p><p><strong>Ejes:</strong> política ambiental, planificación, controles operacionales, evaluación, cumplimiento, riesgos y mejora.</p><p><strong>Aplicación:</strong> desde manufactura y logística hasta salud, turismo y sector público.</p></article>
+    <article class="card std safe"><span class="tag orange">Seguridad y salud</span><h3>ISO 45001:2018</h3><p><strong>Propósito:</strong> proporcionar lugares de trabajo seguros y saludables mediante identificación de peligros, gestión de riesgos y participación de los trabajadores.</p><p><strong>Ejes:</strong> liderazgo, consulta y participación, peligros, riesgos y oportunidades, controles, preparación ante emergencias e investigación de incidentes.</p><p><strong>Estado:</strong> la edición 2018 sigue vigente; su revisión se encuentra en desarrollo.</p></article>
+  </div>
+
+  <div class="figure">
+    <p class="figure-title">Figura 1. Mapa conceptual de un Sistema Integrado de Gestión (SIG)</p>
+    <svg viewBox="0 0 960 440" role="img" aria-label="Diagrama de integración de ISO 9001, 14001 y 45001">
+      <rect x="0" y="0" width="960" height="440" rx="18" fill="#fbfcfe"/>
+      <circle cx="480" cy="225" r="92" fill="#eef4fb" stroke="#185fa7" stroke-width="3"/>
+      <text x="480" y="214" text-anchor="middle" font-size="34" font-weight="800" fill="#172033">SIG</text>
+      <text x="480" y="246" text-anchor="middle" font-size="18" fill="#344054">Mejora continua</text>
+      <circle cx="250" cy="150" r="108" fill="#edf4fb" stroke="#185fa7" stroke-width="3"/>
+      <text x="250" y="142" text-anchor="middle" font-size="27" font-weight="800" fill="#174f86">ISO 9001</text>
+      <text x="250" y="172" text-anchor="middle" font-size="17" fill="#344054">Calidad y cliente</text>
+      <circle cx="710" cy="150" r="108" fill="#eef8f1" stroke="#2f7d4b" stroke-width="3"/>
+      <text x="710" y="142" text-anchor="middle" font-size="27" font-weight="800" fill="#27633d">ISO 14001</text>
+      <text x="710" y="172" text-anchor="middle" font-size="17" fill="#344054">Desempeño ambiental</text>
+      <circle cx="480" cy="345" r="88" fill="#fff4e8" stroke="#b56818" stroke-width="3"/>
+      <text x="480" y="336" text-anchor="middle" font-size="26" font-weight="800" fill="#8a4c0e">ISO 45001</text>
+      <text x="480" y="365" text-anchor="middle" font-size="16" fill="#344054">Seguridad y salud</text>
+    </svg>
+    <p class="figure-note"><em>Nota.</em> Elaboración propia. Las tres normas comparten una estructura armonizada que facilita su integración.</p>
+  </div>
+
+  <h3>3.1 Requisitos clave y aplicación práctica</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Aspecto</th><th>ISO 9001:2026</th><th>ISO 14001:2026</th><th>ISO 45001:2018</th></tr></thead>
+    <tbody>
+      <tr><td>Enfoque principal</td><td>Calidad, cliente y desempeño de procesos.</td><td>Aspectos e impactos ambientales.</td><td>Peligros, riesgos de SST y bienestar laboral.</td></tr>
+      <tr><td>Parte interesada crítica</td><td>Clientes y usuarios.</td><td>Reguladores, comunidad, clientes y cadena de suministro.</td><td>Trabajadores, contratistas, reguladores y dirección.</td></tr>
+      <tr><td>Ejemplo de control</td><td>Indicadores de no conformidad, auditorías y acciones correctivas.</td><td>Controles de residuos, energía, emisiones y cumplimiento.</td><td>Evaluación de riesgos, permisos de trabajo, formación e investigación de incidentes.</td></tr>
+      <tr><td>Resultado buscado</td><td>Productos y servicios consistentes y mejora de la satisfacción.</td><td>Mejor desempeño ambiental y menor exposición a riesgos ambientales.</td><td>Reducción de lesiones, enfermedades e incidentes laborales.</td></tr>
+      <tr><td>Mejora continua</td><td colspan="3">Las tres utilizan el ciclo Planificar-Hacer-Verificar-Actuar (PHVA/PDCA) como lógica de gestión.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note"><em>Nota.</em> Elaboración propia con base en la estructura y propósitos descritos por ISO.</p>
+</section>
+
+<section id="integracion">
+  <h2 class="section-title">4. ¿Cómo se integran?</h2>
+  <p>ISO utiliza una <strong>Estructura Armonizada</strong> para sus normas de sistemas de gestión. Esta estructura mantiene números de cláusula, títulos, términos y texto común, lo que permite que una organización administre varias disciplinas dentro de un mismo sistema. En la práctica, esto significa que procesos como control documental, auditorías internas, gestión de riesgos, revisión por la dirección y acciones correctivas pueden diseñarse una sola vez y servir a las tres normas.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Cláusula común</th><th>Pregunta de gestión</th><th>Aplicación integrada</th></tr></thead>
+    <tbody>
+      <tr><td>4. Contexto</td><td>¿Qué factores y partes interesadas afectan el sistema?</td><td>Analizar clientes, impactos ambientales, trabajadores, regulación y riesgos del entorno.</td></tr>
+      <tr><td>5. Liderazgo</td><td>¿Quién dirige y rinde cuentas?</td><td>Una política integrada, responsabilidades claras y compromiso visible de la dirección.</td></tr>
+      <tr><td>6. Planificación</td><td>¿Qué riesgos, oportunidades y objetivos se atenderán?</td><td>Un mapa común de riesgos con dimensiones de calidad, ambiente y SST.</td></tr>
+      <tr><td>7. Apoyo</td><td>¿Qué recursos, competencias e información se necesitan?</td><td>Formación, comunicación y documentación compartidas.</td></tr>
+      <tr><td>8. Operación</td><td>¿Cómo se controla la ejecución?</td><td>Procedimientos operativos que incorporan simultáneamente requisitos de calidad, ambiente y seguridad.</td></tr>
+      <tr><td>9. Evaluación</td><td>¿Cómo sabemos si funciona?</td><td>KPIs, auditorías internas, evaluación de cumplimiento y revisión de desempeño.</td></tr>
+      <tr><td>10. Mejora</td><td>¿Cómo corregimos y aprendemos?</td><td>No conformidades, causas raíz, acciones correctivas y mejora continua.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="casos">
+  <h2 class="section-title">5. Casos prácticos de implementación</h2>
+  <div class="grid3">
+    <article class="case"><h3>Shanghai Shuguang Hospital · ISO 9001</h3><p>El hospital utilizó un sistema de gestión de la calidad basado en ISO 9001 para coordinar normas, regulaciones y directrices aplicables a sus servicios clínicos.</p><p class="result">Resultados documentados:</p><p>La metodología de caso de ISO reportó incrementos en eficacia médica y eficiencia general, junto con reducciones de quejas por tratamiento e infecciones.</p><p class="small">Fuente principal: ISO Methodology Case Study.</p></article>
+    <article class="case"><h3>Baltika Breweries · ISO 14001</h3><p>La empresa integró sistemas de gestión y utilizó ISO 14001 para fortalecer la conciencia sobre riesgos ambientales.</p><p class="result">Resultados documentados:</p><p>El caso de ISO reporta reducción de procedimientos y documentos, mayor conciencia ambiental del personal, menor exposición a multas ambientales y uso de botellas retornables para disminuir impactos.</p><p class="small">Fuente principal: ISO Economic Benefits of Standards.</p></article>
+    <article class="case"><h3>Samsung SDI · ISO 45001</h3><p>Samsung SDI migró hacia ISO 45001 y buscó armonizar seguridad y salud con otros sistemas de gestión ya utilizados en la organización.</p><p class="result">Resultados documentados:</p><p>La certificación fortaleció el enfoque preventivo y permitió integrar ISO 45001 con ISO 9001, ISO 14001 e ISO 50001, generando una gestión más coherente y eficiente.</p><p class="small">Fuente principal: BSI case study.</p></article>
+  </div>
+</section>
+
+<section id="analisis">
+  <h2 class="section-title">6. Análisis crítico: fortalezas y limitaciones</h2>
+  <div class="two">
+    <div class="card"><h3>Fortalezas</h3><ul>
+      <li><strong>Lenguaje común:</strong> facilita coordinación entre áreas, proveedores y auditorías.</li>
+      <li><strong>Enfoque preventivo:</strong> obliga a identificar riesgos y oportunidades antes de que se conviertan en incidentes.</li>
+      <li><strong>Trazabilidad:</strong> exige evidencia de decisiones, objetivos, resultados y acciones correctivas.</li>
+      <li><strong>Integración:</strong> la estructura armonizada permite compartir procesos sin duplicar burocracia.</li>
+      <li><strong>Mejora continua:</strong> introduce disciplina para medir, verificar y ajustar.</li>
+    </ul></div>
+    <div class="card"><h3>Limitaciones y desafíos</h3><ul>
+      <li><strong>Riesgo de burocratización:</strong> un sistema mal diseñado puede producir documentos sin mejorar desempeño.</li>
+      <li><strong>Certificación ≠ excelencia:</strong> un certificado demuestra conformidad del sistema, no garantiza ausencia de fallos.</li>
+      <li><strong>Costos de transición:</strong> diagnóstico, formación, auditorías y ajustes de procesos requieren recursos.</li>
+      <li><strong>Cultura organizacional:</strong> si la dirección no participa, el sistema puede convertirse en una tarea exclusiva del área de calidad.</li>
+      <li><strong>Medición insuficiente:</strong> cumplir requisitos sin indicadores útiles dificulta demostrar impacto real.</li>
+    </ul></div>
+  </div>
+  <div class="callout"><strong>Lectura crítica.</strong> El valor de una norma no aparece por “tener ISO”, sino por convertir sus requisitos en decisiones cotidianas. La evidencia sobre ISO 14001, por ejemplo, muestra beneficios, pero también señala que los resultados dependen de cómo el sistema se incorpora realmente en las prácticas de la organización.</div>
+</section>
+
+<section id="propuesta">
+  <h2 class="section-title">7. Propuesta de implementación integrada</h2>
+  <p class="lead">Para evitar tres sistemas paralelos, conviene implantar el sistema con una lógica de procesos y no con una lógica de normas aisladas. La idea es que cada proceso operativo responda, dentro del mismo flujo, a requisitos de calidad, ambiente y seguridad sin duplicar controles ni documentos.</p>
+  <div class="steps">
+    <div class="step"><strong>Diagnóstico común</strong><br><span class="small">Identificar procesos, partes interesadas, requisitos legales y brechas frente a las tres normas.</span></div>
+    <div class="step"><strong>Mapa integrado de riesgos</strong><br><span class="small">Relacionar riesgos de calidad, ambientales y de SST por proceso, evitando matrices aisladas.</span></div>
+    <div class="step"><strong>Objetivos y KPIs</strong><br><span class="small">Definir indicadores que midan desempeño real, no únicamente cumplimiento documental.</span></div>
+    <div class="step"><strong>Controles operativos</strong><br><span class="small">Diseñar procedimientos con criterios simultáneos de calidad, ambiente y seguridad.</span></div>
+    <div class="step"><strong>Auditoría integrada</strong><br><span class="small">Evaluar en una sola revisión los requisitos comunes y los específicos de cada norma.</span></div>
+    <div class="step"><strong>Revisión y mejora</strong><br><span class="small">Analizar resultados, causas raíz, acciones correctivas y nuevas oportunidades.</span></div>
+  </div>
+
+  <div class="figure">
+    <p class="figure-title">Figura 2. Ciclo PHVA aplicado a un sistema integrado de gestión</p>
+    <svg viewBox="0 0 1000 430" role="img" aria-label="Ciclo PHVA aplicado a un sistema integrado de gestión">
+      <rect width="1000" height="430" rx="20" fill="#fbfcfe"/>
+      <defs>
+        <marker id="arrowBlue2" markerWidth="12" markerHeight="12" refX="8" refY="6" orient="auto">
+          <path d="M0,0 L0,12 L10,6 z" fill="#4e6278"/>
+        </marker>
+        <filter id="softShadow2" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#b9c6d6" flood-opacity="0.35"/>
+        </filter>
+      </defs>
+
+      <g fill="none" stroke="#55687d" stroke-width="5" marker-end="url(#arrowBlue2)">
+        <path d="M500 92 C650 92 768 128 838 198"/>
+        <path d="M838 230 C780 315 655 350 500 350"/>
+        <path d="M500 350 C345 350 220 315 162 230"/>
+        <path d="M162 198 C232 128 350 92 500 92"/>
+      </g>
+
+      <g font-family="Segoe UI,Arial" text-anchor="middle">
+        <circle cx="500" cy="220" r="92" fill="#f3f7fc" stroke="#1d63ad" stroke-width="3"/>
+        <text x="500" y="205" font-size="18" font-weight="700" fill="#17324d">SISTEMA</text>
+        <text x="500" y="232" font-size="18" font-weight="700" fill="#17324d">INTEGRADO</text>
+        <text x="500" y="259" font-size="18" font-weight="700" fill="#17324d">DE GESTIÓN</text>
+
+        <g filter="url(#softShadow2)">
+          <rect x="360" y="32" width="280" height="94" rx="18" fill="#edf4fd" stroke="#1d63ad" stroke-width="2.5"/>
+          <rect x="730" y="176" width="220" height="94" rx="18" fill="#eef8f2" stroke="#2f7d4b" stroke-width="2.5"/>
+          <rect x="360" y="304" width="280" height="94" rx="18" fill="#fff7ec" stroke="#b56818" stroke-width="2.5"/>
+          <rect x="50" y="176" width="220" height="94" rx="18" fill="#f9efef" stroke="#a94343" stroke-width="2.5"/>
+        </g>
+
+        <text x="500" y="68" font-size="18" font-weight="800" fill="#102a43">PLANIFICAR</text>
+        <text x="500" y="92" font-size="13.5" fill="#24415f">Analizar el contexto · Evaluar riesgos</text>
+        <text x="500" y="111" font-size="13.5" fill="#24415f">Definir objetivos y acciones</text>
+
+        <text x="840" y="212" font-size="18" font-weight="800" fill="#173d28">HACER</text>
+        <text x="840" y="236" font-size="13.5" fill="#28533b">Operar procesos · Capacitar</text>
+        <text x="840" y="255" font-size="13.5" fill="#28533b">Aplicar controles</text>
+
+        <text x="500" y="340" font-size="18" font-weight="800" fill="#6d4311">VERIFICAR</text>
+        <text x="500" y="364" font-size="13.5" fill="#83511a">Medir resultados · Auditar</text>
+        <text x="500" y="383" font-size="13.5" fill="#83511a">Revisar el desempeño</text>
+
+        <text x="160" y="212" font-size="18" font-weight="800" fill="#6f2d2d">ACTUAR</text>
+        <text x="160" y="236" font-size="13.5" fill="#7f3a3a">Corregir desvíos · Estandarizar</text>
+        <text x="160" y="255" font-size="13.5" fill="#7f3a3a">Mejorar y aprender</text>
+      </g>
+    </svg>
+    <p class="figure-note"><em>Nota.</em> Elaboración propia. El ciclo PHVA funciona como eje común para integrar calidad, ambiente y seguridad y salud en el trabajo dentro de un mismo sistema de gestión.</p>
+  </div>
+</section>
+
+<section id="colaboracion">
+  <h2 class="section-title">8. Organización y trabajo colaborativo</h2>
+  <p>La wiki fue planteada como un producto único y coherente. Aunque cada persona puede asumir una sección principal, la revisión final debe hacerse en conjunto para asegurar uniformidad de estilo, consistencia analítica y correcto uso de las referencias.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Rol de trabajo</th><th>Aporte principal</th><th>Revisión complementaria</th></tr></thead>
+    <tbody>
+      <tr><td>Coordinación editorial</td><td>Integración del contenido, ajustes de redacción, estructura global y edición final.</td><td>Validación de coherencia, citas y referencias.</td></tr>
+      <tr><td>Sección ambiental</td><td>Desarrollo de ISO 14001 y del caso de aplicación en gestión ambiental.</td><td>Revisión cruzada de la sección de calidad.</td></tr>
+      <tr><td>Sección de SST</td><td>Desarrollo de ISO 45001 y del caso de aplicación en seguridad y salud en el trabajo.</td><td>Revisión cruzada de la sección ambiental.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note"><em>Nota.</em> Antes de publicar la versión definitiva, el grupo puede sustituir estos roles por los nombres reales de las personas participantes.</p>
+</section>
+
+<section id="referencias">
+  <h2 class="section-title">9. Referencias</h2>
+  <div class="refs">
+    <p>British Standards Institution. (s. f.). <em>How Samsung became more sustainable through ISO 45001</em>. https://www.bsigroup.com/en-CA/insights-and-media/insights/case-studies/how-samsung-became-more-sustainable-through-iso-45001/</p>
+    <p>International Organization for Standardization. (2014). <em>ISO methodology case study: Shanghai Shuguang Hospital, China</em>. ISO Standards Impact Library. https://library.iso.org/contents/data/210-shanghai-shuguang-hospital-c.html</p>
+    <p>International Organization for Standardization. (2017, 23 de febrero). <em>ISO celebrates 70 years</em>. https://www.iso.org/news/2017/02/Ref2163.html</p>
+    <p>International Organization for Standardization. (2018). <em>ISO 45001:2018. Occupational health and safety management systems — Requirements with guidance for use</em>. https://www.iso.org/standard/63787.html</p>
+    <p>International Organization for Standardization. (2026a). <em>ISO 9001:2026. Quality management systems — Requirements</em>. https://www.iso.org/standard/9001</p>
+    <p>International Organization for Standardization. (2026b). <em>ISO 14001:2026. Environmental management systems — Requirements with guidance for use</em>. https://www.iso.org/standard/14001</p>
+    <p>International Organization for Standardization. (s. f.). <em>Management system standards</em>. https://www.iso.org/management-system-standards.html</p>
+    <p>International Organization for Standardization. (s. f.). <em>Benefits of ISO 14001 — 5000 users view</em>. https://committee.iso.org/sites/tc207sc1/home/projects/published/iso-14001---environmental-manage/benefits-of-iso-14001---5000-use.html</p>
+    <p>International Organization for Standardization. (2013). <em>Economic benefits of standards: Baltika Breweries</em>. https://www.iso.org/files/live/sites/isoorg/files/standards/benefits_of_international_standards/case_studies/presentations/ebs_-_baltika_breweries_final.pdf</p>
+    <p>Psomas, E., Fotopoulos, C., & Kafetzopoulos, D. (2011). Motives, difficulties and benefits in implementing the ISO 14001 environmental management system. <em>Management of Environmental Quality</em>. Registro disponible en ISO Standards Impact Library: https://library.iso.org/contents/data/143-motives-difficulties-and-ben.html</p>
+  </div>
+</section>
+</main>
+<footer><div class="footer-wrap"><span>Wiki colaborativa · Aseguramiento de la Calidad</span><span>Universidad Latina de Costa Rica · 2026</span></div></footer>
+</body></html>
